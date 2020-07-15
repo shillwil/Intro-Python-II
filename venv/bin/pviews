@@ -1,0 +1,10 @@
+#!/bin/sh
+'''exec' "/Users/alexshillingford/Desktop/Software Development/Lambda/CSPT10/Homework Projects/Intro-Python-II/venv/bin/python" "$0" "$@"
+' '''
+# -*- coding: utf-8 -*-
+import re
+import sys
+from pyramid.scripts.pviews import main
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
