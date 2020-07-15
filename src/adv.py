@@ -1,4 +1,5 @@
-from room import Room
+from .room import Room
+from .player import Player
 
 # Declare all the rooms
 
@@ -39,6 +40,11 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
+new_player_name = input('Enter your player name: ')
+
+new_player = Player(new_player_name, room['outside'])
+
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -49,3 +55,17 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+def adv_game():
+    isRunning = True
+
+    while isRunning:
+        input_source = input(f'Player {new_player}, where to next?: ')
+
+        try:
+            input_source = input_source.__str__()
+        except ValueError:
+            print(f'I don\'t know what {input_source} is!\n Try typing \'n\' \'s\' \'e\' or \'w\'')
+            continue
+
+        print(f'{new_player.current_room}')
